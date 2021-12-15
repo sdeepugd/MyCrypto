@@ -9,6 +9,7 @@ import { AntDesign, Entypo, FontAwesome, FontAwesome5, MaterialIcons } from '@ex
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
 
+import CoinDetailsScreen from '../screens/CoinDetailsScreen';
 import { ColorSchemeName } from 'react-native';
 import Colors from '../constants/Colors';
 import HomeScreen from '../screens/Home';
@@ -41,12 +42,10 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+    <Stack.Navigator >
+      <Stack.Screen name="Root" component={BottomTabNavigator} options={{headerShown:false}}/>
+      <Stack.Screen name="CoinDetails" component={CoinDetailsScreen} options={{ title: 'Price Data' }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-      <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
     </Stack.Navigator>
   );
 }
