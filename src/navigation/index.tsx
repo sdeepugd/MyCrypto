@@ -21,6 +21,7 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import PortfolioScreen from '../screens/PortfolioScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import RankingScreen from '../screens/RankingScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import useColorScheme from '../hooks/useColorScheme';
@@ -44,6 +45,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator >
+      <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown : false }} />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{headerShown:false}}/>
       <Stack.Screen name="CoinDetails" component={CoinDetailsScreen} options={{ title: 'Price Data' }} />
       <Stack.Screen name="CoinExchange" component={CoinExchangeScreen} options={{ title: 'Coin Exchange' }} />

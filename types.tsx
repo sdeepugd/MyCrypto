@@ -19,6 +19,7 @@ export type RootStackParamList = {
   CoinDetails: undefined;
   CoinExchange: undefined;
   NotFound: undefined;
+  Welcome: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
