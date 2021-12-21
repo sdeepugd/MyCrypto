@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons'
 import CoinPriceGraph from '../../components/CoinPriceGraph'
 import PercentageChange from '../../components/PercentageChange'
 import styles from './style'
+import { useNavigation } from '@react-navigation/native'
 
 const historyString = JSON.stringify([
     47222.9831719397,
@@ -179,25 +180,29 @@ const historyString = JSON.stringify([
 
 const CoinDetailsScreen = () => {
 
-    const onBuy = () => {
-        console.log('Buy')
-    }
-
-    const onSell = () => {
-        console.log('Sell')
-    }
-
     const [coinData,setCoinData] = useState({
         id: '1',
         name: 'Bitcoin',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1257px-Ethereum_logo_2014.svg.png',
-        symbol: 'USD',
+        symbol: 'BTC',
         valueChange24H: -1.12,
         valueChange1D: 2.12,
         valueChange7D: -1.12,
         currentPrice:59372,
         amount:2
     })
+
+    const navigation = useNavigation()
+    
+    const onBuy = () => {
+        navigation.navigate('CoinExchange',{isBuy: true, coinData})
+    }
+
+    const onSell = () => {
+        navigation.navigate('CoinExchange',{isBuy: false,coinData})
+    }
+
+
 
     return (
     <View  >

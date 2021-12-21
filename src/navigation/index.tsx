@@ -10,6 +10,7 @@ import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
 
 import CoinDetailsScreen from '../screens/CoinDetailsScreen';
+import CoinExchangeScreen from '../components/CoinExchangeScreen';
 import { ColorSchemeName } from 'react-native';
 import Colors from '../constants/Colors';
 import HomeScreen from '../screens/Home';
@@ -45,6 +46,7 @@ function RootNavigator() {
     <Stack.Navigator >
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{headerShown:false}}/>
       <Stack.Screen name="CoinDetails" component={CoinDetailsScreen} options={{ title: 'Price Data' }} />
+      <Stack.Screen name="CoinExchange" component={CoinExchangeScreen} options={{ title: 'Coin Exchange' }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );
